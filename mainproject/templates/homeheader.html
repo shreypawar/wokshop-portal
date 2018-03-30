@@ -1,0 +1,100 @@
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+.footer {
+   
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    
+}
+
+.footer a {
+  float: left;
+  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  padding-bottom: 16px 
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer a:hover {
+  background: #000000;
+  color: white;
+}
+
+.container{
+margin-top: 100px;
+margin-bottom: 100px;
+}
+
+.navbar.container-fluid a:hover{
+background: #008000;
+  color: black;
+}
+
+
+
+
+
+
+</style>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header" style="padding-top:20px;padding-bottom:20px; font-size: 17px;">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav" style="padding-top:20px;padding-bottom:20px; font-size: 17px;">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Aboutus</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div style="float:right;padding-top:20px;padding-bottom:20px; font-size: 17px;">
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+	<!--<a href="/login">Login</a>-->
+	<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    </div>
+  </div>
+</nav>
+
+<div>
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+</div>
+<div class="footer">
+<ul>
+  <div>
+	<a href="/">Home</a>
+ 	<a href="#news">www.WorkshopPortal.com</a>
+ 	
+  </div>
+</ul>
+</div>
+
+
+
+</body>
+</html>
+

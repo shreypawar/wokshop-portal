@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<title></title>
+	
+  	<link rel="stylesheet" type="text/css" href="static/home1.css">
+    <link rel="stylesheet" type="text/css" href="static/login1.css">
+</head>
+<body>
+
+{% extends "home1.html" %}
+{% block content %}
+
+
+<div style="background-color: #ecf0f1;" class="slidediv">
+<h2 class="w3-center" style="padding-left: 440px; padding-right: 440px; font-weight: bold; font-style: italic; color: #248f8f;">Welcome To Foslipy</h2>
+
+<div class="w3-content w3-section" style="max-width:600px; padding-left: 300px; padding-right: 300px;">
+  <img class="mySlides" src="/static/new2.jpg" style="width:100%; height: 400px;">
+  <img class="mySlides" src="/static/new4.jpg" style="width:100%; height: 400px;">
+  <img class="mySlides" src="/static/new3.jpg" style="width:100%; height: 400px;">
+</div>
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/adminhome" method="POST">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/static/user_icon.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container" style="padding-left: 100px; padding-right: 100px;">
+      <label for="uname"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email Address" name="email" required><br>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required><br>
+        
+      <button type="submit">Login</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button><br>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  </form>
+</div>
+
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/userhome" method="POST">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/static/user_icon.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container" style="padding-left: 100px; padding-right: 100px;">
+      <label for="name"><b>Username</b></label>
+      <input type="text" placeholder="Enter your name" name="name" required><br>
+
+      <label for="uname"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email Address" name="email" required><br>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required><br>
+        
+      <button type="submit">Signup</button>
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button><br>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  </form>
+</div>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+{% endblock %}
+
+</body>
+</html>

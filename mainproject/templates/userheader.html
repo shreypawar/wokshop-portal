@@ -1,0 +1,239 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+
+
+
+<link rel="Stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#MyTable').DataTable( {
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                //to select and search from grid
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+} );
+</script>
+
+<style>
+
+.container1 {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+ul {
+    list-style-type: none;
+    border-radius: 20px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #708090;
+    top: 0;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #C0C0C0;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #C0C0C0;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.right {
+  float: right;
+}
+
+.footer{
+  list-style-type: none;
+    border-radius: 25px;
+    overflow: hidden;
+    
+    width: auto;
+    bottom: 0;
+}
+
+.footer a {
+  float: left;
+  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  padding-bottom: 16px 
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer a:hover {
+  background: #C0C0C0;
+  color: white;
+}
+
+#mySidenav a {
+    margin-top: 220px;
+    position: fixed;
+    left: -92px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#about {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#blog {
+    top: 80px;
+    background-color: #2196F3;
+}
+
+#projects {
+    top: 140px;
+    background-color: #f44336;
+}
+
+#contact {
+    top: 200px;
+    background-color: #555
+}
+
+@media screen and (max-width: 600px){
+    .footer
+    .header
+    ul 
+    li {float: none;}
+}
+</style>
+</head>
+
+<body style="background-image: url('/static/bg.jpg'); background-repeat: no-repeat; background-size: cover; ">
+
+
+<div class="container1">
+
+<div style="background-color: #99ffe6; border-radius: 25px;" class="header">
+  <table>
+    <tr>
+      <td style="width: 1000px;"">
+        <div>
+          <h2 style="color: #248f8f; padding-left: 100px; font-style: italic; font-size: 30px;"><span>FOSLIPY WORKSHOP PORTAL</span></h2>
+          <div>
+            <p style="padding-left: 100px; font-size: 16px;">It does not matter where you go and what you study, <br>What matters most is what you share with yourself and the World.</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div>
+          <img src="static/logo2.jpg" style="width: 100%; height: auto; padding-right: 5px; border-radius: 20px;">
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+<div style="position: sticky; top: 0; padding-top: 10px;">
+<ul>
+  <li><a href="/userbody">Home</a></li>
+  <li class="dropdown">
+    <a class="dropbtn">Workshops</a>
+    <div class="dropdown-content">
+      <a href="/userfreetable">Free-Workshop</a>
+      <a href="/useruptable">Upcoming-Workshop</a>
+      <a href="/userpaidtable">Paid-Workshop</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a class="dropbtn">Course + Internship</a>
+    <div class="dropdown-content">
+      <a href="#">Course</a>
+      <a href="#">Internship</a>
+    </div>
+  </li>
+   <li><a href="#">Activity</a></li>
+   <li class="right"><a href="/" style="width:auto;">Logout</a></li>
+   <li class="right"><a href="/userbody" style="width:auto;">Welcome User!</a></li>
+   
+</ul>
+</div>
+
+<div style="padding-top: 10px;">
+  {% block content %}
+  {% endblock %}
+</div>
+
+<div class="footer" style="padding-top: 10px;">
+<ul style="border-radius: 25px;">
+  <a href="/">Home</a>
+  <a href="#news">www.WorkshopPortal.com</a>
+</ul>
+</div>
+
+</div>
+
+</body>
+</html>

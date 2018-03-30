@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<!--<link rel="Stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#MyTable').DataTable( {
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                //to select and search from grid
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+} );
+</script>-->
+
+</head>
+
+
+{% extends "userheader.html" %}
+{% block content %}
+  
+<div class="container" align="center" style="padding-left: 50px; padding-right: 50px; overflow-x:auto;"> 
+  <h2>Free Workshop List</h2><br><br>
+  <table id="MyTable" class="display" cellspacing="0" width="100%" align="center" border=1>
+    <thead>
+      <tr>
+        <th>U_ID</th>
+        <th>ColgName</th>
+        <th>Location</th>
+        <th>HOD</th>
+        <th>Contact</th>
+        <th>Seminar Date</th>
+        <th>Topic</th>
+        <th>Expectation</th>
+    </thead>
+<tbody>
+{% for row in data %}
+        <tr>
+        {% for d in row %}
+            <td>{{ d }}</td>
+        {% endfor %}
+        </tr>
+{% endfor %}
+
+
+</tbody>
+  </table>
+
+
+
+</div>	
+
+
+{% endblock %}
+
+
+
+</body>
+</html>
+

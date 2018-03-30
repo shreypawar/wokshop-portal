@@ -1,0 +1,89 @@
+.container1 {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.menu {
+	list-style-type: none;
+    border-radius: 20px;
+    overflow: hidden;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #708090;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #C0C0C0;
+}
+
+
+.active {
+    background-color: #C0C0C0;
+}
+
+.right {
+	float: right;
+}
+
+
+.footer{
+	list-style-type: none;
+    border-radius: 25px;
+    overflow: hidden;
+    
+    width: auto;
+    bottom: 0;
+}
+
+.footer a {
+  float: left;
+  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  padding-bottom: 16px 
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.footer a:hover {
+  background: #C0C0C0;
+  color: white;
+}
+
+
+.mySlides {
+  display:none;
+}
+
+
+@media screen and (max-width: 600px){
+    .slidediv h2
+    ul 
+    li {float: none;}
+}
+
+

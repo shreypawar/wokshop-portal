@@ -1,0 +1,46 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel = "stylesheet" type="text/css" href="static/form.css"> 
+
+</head>
+
+<body>
+
+{% extends "adminhome.html" %}
+{% block content %}
+<div class="container">
+<h1 style="text-align: center;">Add Paid-Workshop Record</h1>
+<form action="{{ url_for('result2') }}" method="post" name= "Update2">
+{% for key in data %}
+  <div class="row">
+    <div class="col-15">
+      <label for="Colname">{{ key }}</label>
+    </div>
+    <div class="col-75">
+    {% if data[key][1] == "textarea" %}
+      <textarea id="{{ key }}" name="{{ key }}" placeholder="Write something.." style="height:200px" required>{{ data[key][0] }}</textarea>
+    {% else %}
+      <input type="{{ data[key][1] }}" id="{{ key }}" name="{{ key }}" placeholder="Please Put Value" value="{{ data[key][0] }}" required>
+    {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+<br>
+<div class="row" style="float:left;">
+  <div>
+    <input type="submit" value="{{ frmtype }}" name="submit">
+  </div>
+</div>
+
+</form>
+
+
+</div>
+
+{% endblock %}
+
+</body>
+</html>
+

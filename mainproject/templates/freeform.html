@@ -1,0 +1,90 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel = "stylesheet" type="text/css" href="static/form.css"> 
+
+</head>
+
+<body>
+
+{% extends "adminhome.html" %}
+{% block content %}
+<div class="container">
+  <h1 style="text-align: center;">Add Free-Workshop Record</h1>
+  <form action="{{ url_for('Enter') }}" method="post">
+    <div class="row">
+      <div class="col-15">
+        <label for="Colname">College Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Colname" name="Colname" placeholder="Your College Name.." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-15">
+        <label for="loc">Location</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="loc" name="loc" placeholder="Your location.." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-15">
+        <label for="hod">HOD Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="hod" name="hod" placeholder="Your Hod Name.." required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-15">
+        <label for="con">Contact Details</label>
+      </div>
+      <div class="col-75">
+        <input type="tel" pattern="[789][0-9]{9}" id="con" name="con" placeholder="Your contact number.." required>
+        <!--<input type="tel" id="con" name="con" placeholder="Your contact number..">-->
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-15">
+        <label for="sem">Seminar Date</label>
+      </div>
+      <div class="col-75">
+        <input type="Date" id="date" name="date" placeholder="select date.." required>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-15">
+        <label for="top">Topic</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="top" name="top" placeholder="Your Topic Name.." required>
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="col-15">
+        <label for="expect">Expectation</label>
+      </div>
+      <div class="col-75">
+        <textarea id="expect" name="expect" placeholder="Write something.." required style="height:200px"></textarea>
+      </div>
+    </div><br>
+    <div class="row" style="float:left;">
+	<div>
+           <input type="submit" value="Submit">
+	</div>
+    </div>
+  </form>
+  
+</div>
+
+{% endblock %}
+
+</body>
+</html>
+
